@@ -4,8 +4,6 @@ Addresses and Explore links for all active smart contracts
 
 ## Core
 
----
-
 [Cycle Token](https://cchain.explorer.avax.network/address/0x81440C939f2C1E34fc7048E518a637205A632a74/transactions) - 0x81440C939f2C1E34fc7048E518a637205A632a74
 
 [Distributor](https://cchain.explorer.avax.network/address/0x47A1C6Aea2Ec713F27815325fFAcb4E63E4291C5/transactions) - 0x47A1C6Aea2Ec713F27815325fFAcb4E63E4291C5
@@ -21,8 +19,6 @@ Addresses and Explore links for all active smart contracts
 [TeamTimelock](https://cchain.explorer.avax.network/address/0xf32986Aeff6280eCC4E404C987987050FA57A750/transactions) - 0xf32986Aeff6280eCC4E404C987987050FA57A750
 
 ## Vaults
-
----
 
 ### Pangolin Rewards AVAX/PNG
 [Vault](https://cchain.explorer.avax.network/address/0xccB42c29285754f441Dc6A4461De011efCD09F75/transactions) - 0xccB42c29285754f441Dc6A4461De011efCD09F75
