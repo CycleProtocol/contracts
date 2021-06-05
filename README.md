@@ -6,7 +6,7 @@ Addresses and Explore links for all active smart contracts
 
 [Cycle Token](https://cchain.explorer.avax.network/address/0x81440C939f2C1E34fc7048E518a637205A632a74/transactions) - 0x81440C939f2C1E34fc7048E518a637205A632a74
 
-[Distributor](https://cchain.explorer.avax.network/address/0x47A1C6Aea2Ec713F27815325fFAcb4E63E4291C5/transactions) - 0x47A1C6Aea2Ec713F27815325fFAcb4E63E4291C5
+[Distributor](https://cchain.explorer.avax.network/address/0x0B6340A6DE49a6C24BD9e3a5FbF42A2E8b43805F/transactions) - 0x0B6340A6DE49a6C24BD9e3a5FbF42A2E8b43805F
 
 [Processor](https://cchain.explorer.avax.network/address/0x91EB9c9d21E9D9b0987a33CA792b6F72E2ac3859/transactions) - 0x91EB9c9d21E9D9b0987a33CA792b6F72E2ac3859
 
