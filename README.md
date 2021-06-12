@@ -89,3 +89,12 @@ Addresses and Explore links for all active smart contracts
 [Strategy](https://cchain.explorer.avax.network/address/0xF4110f61dF314e5A37b788773eb189238C25a0A4/transactions) - 0xF4110f61dF314e5A37b788773eb189238C25a0A4
 
 [Rewards](https://cchain.explorer.avax.network/address/0xFcCa294C37F24441AdD81bfedd276C0343F0d817/transactions) - 0xFcCa294C37F24441AdD81bfedd276C0343F0d817
+
+---
+
+### Pangolin Rewards PNG/VSO
+[Vault](https://cchain.explorer.avax.network/address/0xbD87717eAAE4F13dD5b55734a46fA49C519f9404/transactions) - 0xbD87717eAAE4F13dD5b55734a46fA49C519f9404
+
+[Strategy](https://cchain.explorer.avax.network/address/0x183f7C75ACA39d1D77cD3833ccE6bD14C612C3d5/transactions) - 0x183f7C75ACA39d1D77cD3833ccE6bD14C612C3d5
+
+[Rewards](https://cchain.explorer.avax.network/address/0xaA3219B25125420171aFd3267be9709214d49a28/transactions) - 0xaA3219B25125420171aFd3267be9709214d49a28
