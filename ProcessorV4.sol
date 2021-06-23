@@ -543,65 +543,6 @@ library SafeERC20 {
     }
 }
 
-/**
- * @dev Contract module that helps prevent reentrant calls to a function.
- *
- * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier
- * available, which can be applied to functions to make sure there are no nested
- * (reentrant) calls to them.
- *
- * Note that because there is a single `nonReentrant` guard, functions marked as
- * `nonReentrant` may not call one another. This can be worked around by making
- * those functions `private`, and then adding `external` `nonReentrant` entry
- * points to them.
- *
- * TIP: If you would like to learn more about reentrancy and alternative ways
- * to protect against it, check out our blog post
- * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].
- */
-abstract contract ReentrancyGuard {
-    // Booleans are more expensive than uint256 or any type that takes up a full
-    // word because each write operation emits an extra SLOAD to first read the
-    // slot's contents, replace the bits taken up by the boolean, and then write
-    // back. This is the compiler's defense against contract upgrades and
-    // pointer aliasing, and it cannot be disabled.
-
-    // The values being non-zero value makes deployment a bit more expensive,
-    // but in exchange the refund on every call to nonReentrant will be lower in
-    // amount. Since refunds are capped to a percentage of the total
-    // transaction's gas, it is best to keep them low in cases like this one, to
-    // increase the likelihood of the full refund coming into effect.
-    uint256 private constant _NOT_ENTERED = 1;
-    uint256 private constant _ENTERED = 2;
-
-    uint256 private _status;
-
-    constructor () internal {
-        _status = _NOT_ENTERED;
-    }
-
-    /**
-     * @dev Prevents a contract from calling itself, directly or indirectly.
-     * Calling a `nonReentrant` function from another `nonReentrant`
-     * function is not supported. It is possible to prevent this from happening
-     * by making the `nonReentrant` function external, and make it call a
-     * `private` function that does the actual work.
-     */
-    modifier nonReentrant() {
-        // On the first call to nonReentrant, _notEntered will be true
-        require(_status != _ENTERED, "ReentrancyGuard: reentrant call");
-
-        // Any calls to nonReentrant after this point will fail
-        _status = _ENTERED;
-
-        _;
-
-        // By storing the original value once again, a refund is triggered (see
-        // https://eips.ethereum.org/EIPS/eip-2200)
-        _status = _NOT_ENTERED;
-    }
-}
-
 /*
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -687,116 +628,6 @@ abstract contract Ownable is Context {
     }
 }
 
-/**
- * @dev Contract module which allows children to implement an emergency stop
- * mechanism that can be triggered by an authorized account.
- *
- * This module is used through inheritance. It will make available the
- * modifiers `whenNotPaused` and `whenPaused`, which can be applied to
- * the functions of your contract. Note that they will not be pausable by
- * simply including this module, only once the modifiers are put in place.
- */
-abstract contract Pausable is Context {
-    /**
-     * @dev Emitted when the pause is triggered by `account`.
-     */
-    event Paused(address account);
-
-    /**
-     * @dev Emitted when the pause is lifted by `account`.
-     */
-    event Unpaused(address account);
-
-    bool private _paused;
-
-    /**
-     * @dev Initializes the contract in unpaused state.
-     */
-    constructor () internal {
-        _paused = false;
-    }
-
-    /**
-     * @dev Returns true if the contract is paused, and false otherwise.
-     */
-    function paused() public view virtual returns (bool) {
-        return _paused;
-    }
-
-    /**
-     * @dev Modifier to make a function callable only when the contract is not paused.
-     *
-     * Requirements:
-     *
-     * - The contract must not be paused.
-     */
-    modifier whenNotPaused() {
-        require(!paused(), "Pausable: paused");
-        _;
-    }
-
-    /**
-     * @dev Modifier to make a function callable only when the contract is paused.
-     *
-     * Requirements:
-     *
-     * - The contract must be paused.
-     */
-    modifier whenPaused() {
-        require(paused(), "Pausable: not paused");
-        _;
-    }
-
-    /**
-     * @dev Triggers stopped state.
-     *
-     * Requirements:
-     *
-     * - The contract must not be paused.
-     */
-    function _pause() internal virtual whenNotPaused {
-        _paused = true;
-        emit Paused(_msgSender());
-    }
-
-    /**
-     * @dev Returns to normal state.
-     *
-     * Requirements:
-     *
-     * - The contract must be paused.
-     */
-    function _unpause() internal virtual whenPaused {
-        _paused = false;
-        emit Unpaused(_msgSender());
-    }
-}
-
-interface IPangolinRouter {
-    function addLiquidity(address tokenA, address tokenB, uint amountADesired, uint amountBDesired, uint amountAMin, uint amountBMin, address to, uint deadline) external returns (uint amountA, uint amountB, uint liquidity);
-    function addLiquidityAVAX(address token, uint amountTokenDesired, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline) external payable returns (uint amountToken, uint amountAVAX, uint liquidity);
-    function removeLiquidity(address tokenA, address tokenB, uint liquidity, uint amountAMin, uint amountBMin, address to, uint deadline) external returns (uint amountA, uint amountB);
-    function removeLiquidityAVAX(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline) external returns (uint amountToken, uint amountAVAX);
-    function removeLiquidityWithPermit(address tokenA, address tokenB, uint liquidity, uint amountAMin, uint amountBMin, address to, uint deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) external returns (uint amountA, uint amountB);
-    function removeLiquidityAVAXWithPermit(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) external returns (uint amountToken, uint amountAVAX);
-    function removeLiquidityAVAXSupportingFeeOnTransferTokens(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline) external returns (uint amountAVAX);
-    function removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) external returns (uint amountAVAX);
-    function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapTokensForExactTokens(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapExactAVAXForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts);
-    function swapTokensForExactAVAX(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapExactTokensForAVAX(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapAVAXForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts);
-    function swapExactTokensForTokensSupportingFeeOnTransferTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline ) external;
-    function swapExactAVAXForTokensSupportingFeeOnTransferTokens( uint amountOutMin, address[] calldata path, address to, uint deadline) external payable;
-    function swapExactTokensForAVAXSupportingFeeOnTransferTokens( uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external;
-    function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);
-    function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);
-    function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);
-    function getAmountsOut(uint amountIn, address[] memory path) external view returns (uint[] memory amounts);
-    function getAmountsIn(uint amountOut, address[] memory path) external view returns (uint[] memory amounts);
-}
-
 interface ICycle {
     function cycle(uint256 amountIn) external;
     function authorize(uint256 amount) external;
@@ -806,57 +637,81 @@ interface IWAVAX {
     function deposit() external payable;
 }
 
-contract HarvestProcessor is ReentrancyGuard, Ownable, Pausable {
+interface IStakingRewards {
+    function notifyRewardAmount(uint256 reward) external;
+}
+
+/**
+ * @title Processor V4
+ * @dev Transfer to AVAX rewards and control daily emission
+ */
+contract ProcessorV4 is Ownable {
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
 
     address public constant CYCLE = address(0x81440C939f2C1E34fc7048E518a637205A632a74);
     address public constant WAVAX = address(0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7);
-    address public constant Router = address(0xE54Ca86531e17Ef3616d22Ca28b0D458b6C89106);
 
-    address[] public swapPath = [WAVAX, CYCLE];
+    address public AVAXRewards;
+    address public Proxy;
 
-    event HarvestProcessed(uint256 amountWAVAX, uint256 amountCYCLE, address indexed caller);
+    uint256 public emission = 40e18;
+
+    event RewardsProcessed(uint256 amountCYCLE);
+    event EmissionUpdated(uint256 newEmission);
+    event AVAXRewardsUpdated(address AVAXRewards);
+    event ProxyUpdated(address Proxy);
 
     receive() external payable {}
 
-    function togglePause() external onlyOwner {
-        paused() ? _unpause() : _pause();
+    modifier onlyProxy() {
+        require(msg.sender == Proxy, "ProcessorV4: Caller must be the Proxy");
+        _;
+    }
+
+    function setEmission(uint256 newEmission) external onlyOwner {
+        emission = newEmission;
+        emit EmissionUpdated(newEmission);
+    }
+
+    function setAVAXRewards(address _AVAXRewards) external onlyOwner {
+        AVAXRewards = _AVAXRewards;
+        emit AVAXRewardsUpdated(AVAXRewards);
+    }
+
+    function setProxy(address _Proxy) external onlyOwner {
+        Proxy = _Proxy;
+        emit ProxyUpdated(Proxy);
+    }
+
+    // In case rewards need to be cleared for update
+    function clearRewards() external onlyOwner {
+        IERC20(CYCLE).safeTransfer(msg.sender, balanceCYCLE());
     }
 
     function balanceWAVAX() public view returns (uint256) {
         return IERC20(WAVAX).balanceOf(address(this));
     }
 
-    // Returns swap result and extra CYCLE in contract
-    function swap(uint256 amountWAVAX) internal returns (uint256 amountCYCLE) {
-        IERC20(WAVAX).safeIncreaseAllowance(Router, amountWAVAX);
-        IPangolinRouter(Router).swapExactTokensForTokens(
-            amountWAVAX, 
-            0, 
-            swapPath, 
-            address(this), 
-            block.timestamp.add(120)
-        );
-        amountCYCLE = IERC20(CYCLE).balanceOf(address(this));
+    function balanceCYCLE() public view returns (uint256) {
+        return IERC20(CYCLE).balanceOf(address(this));
     }
 
-    /**
-     * @dev Allow pausing processing when upgrading Cycle variables or Distributor
-     */
-    function process() external nonReentrant whenNotPaused {
-        require(!Address.isContract(msg.sender), "Caller is not an EOA");
-
+    function process() external onlyProxy {
         uint256 balanceAVAX = address(this).balance;
         if (balanceAVAX > 0) {
             IWAVAX(WAVAX).deposit{value: balanceAVAX}();
         }
 
-        uint256 amountWAVAX = balanceWAVAX();
-        uint256 balanceCYCLE = swap(amountWAVAX);
-        ICycle(CYCLE).authorize(balanceCYCLE);
-        ICycle(CYCLE).cycle(balanceCYCLE);
+        uint256 balWAVAX = balanceWAVAX();
+        IERC20(WAVAX).safeTransfer(AVAXRewards, balWAVAX);
+        IStakingRewards(AVAXRewards).notifyRewardAmount(balWAVAX);
 
-        emit HarvestProcessed(amountWAVAX, balanceCYCLE, msg.sender);
+        uint256 balCYCLE = balanceCYCLE();
+        uint256 amountToSend = balCYCLE < emission ? balCYCLE : emission;
+        ICycle(CYCLE).authorize(amountToSend);
+        ICycle(CYCLE).cycle(amountToSend);
+
+        emit RewardsProcessed(amountToSend);
     }
 }

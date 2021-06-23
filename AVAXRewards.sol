@@ -191,6 +191,34 @@ library Address {
 pragma solidity >=0.6.0 <0.8.0;
 
 /**
+ * @dev Standard math utilities missing in the Solidity language.
+ */
+library Math {
+    /**
+     * @dev Returns the largest of two numbers.
+     */
+    function max(uint256 a, uint256 b) internal pure returns (uint256) {
+        return a >= b ? a : b;
+    }
+
+    /**
+     * @dev Returns the smallest of two numbers.
+     */
+    function min(uint256 a, uint256 b) internal pure returns (uint256) {
+        return a < b ? a : b;
+    }
+
+    /**
+     * @dev Returns the average of two numbers. The result is rounded towards
+     * zero.
+     */
+    function average(uint256 a, uint256 b) internal pure returns (uint256) {
+        // (a + b) / 2 can overflow, so we distribute
+        return (a / 2) + (b / 2) + ((a % 2 + b % 2) / 2);
+    }
+}
+
+/**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
  * checks.
  *
@@ -401,6 +429,27 @@ library SafeMath {
     }
 }
 
+/*
+ * @dev Provides information about the current execution context, including the
+ * sender of the transaction and its data. While these are generally available
+ * via msg.sender and msg.data, they should not be accessed in such a direct
+ * manner, since when dealing with GSN meta-transactions the account sending and
+ * paying for execution may not be the actual sender (as far as an application
+ * is concerned).
+ *
+ * This contract is only required for intermediate, library-like contracts.
+ */
+abstract contract Context {
+    function _msgSender() internal view virtual returns (address payable) {
+        return msg.sender;
+    }
+
+    function _msgData() internal view virtual returns (bytes memory) {
+        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
+        return msg.data;
+    }
+}
+
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
  */
@@ -602,91 +651,6 @@ abstract contract ReentrancyGuard {
     }
 }
 
-/*
- * @dev Provides information about the current execution context, including the
- * sender of the transaction and its data. While these are generally available
- * via msg.sender and msg.data, they should not be accessed in such a direct
- * manner, since when dealing with GSN meta-transactions the account sending and
- * paying for execution may not be the actual sender (as far as an application
- * is concerned).
- *
- * This contract is only required for intermediate, library-like contracts.
- */
-abstract contract Context {
-    function _msgSender() internal view virtual returns (address payable) {
-        return msg.sender;
-    }
-
-    function _msgData() internal view virtual returns (bytes memory) {
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
-        return msg.data;
-    }
-}
-
-/**
- * @dev Contract module which provides a basic access control mechanism, where
- * there is an account (an owner) that can be granted exclusive access to
- * specific functions.
- *
- * By default, the owner account will be the one that deploys the contract. This
- * can later be changed with {transferOwnership}.
- *
- * This module is used through inheritance. It will make available the modifier
- * `onlyOwner`, which can be applied to your functions to restrict their use to
- * the owner.
- */
-abstract contract Ownable is Context {
-    address private _owner;
-
-    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
-
-    /**
-     * @dev Initializes the contract setting the deployer as the initial owner.
-     */
-    constructor () internal {
-        address msgSender = _msgSender();
-        _owner = msgSender;
-        emit OwnershipTransferred(address(0), msgSender);
-    }
-
-    /**
-     * @dev Returns the address of the current owner.
-     */
-    function owner() public view virtual returns (address) {
-        return _owner;
-    }
-
-    /**
-     * @dev Throws if called by any account other than the owner.
-     */
-    modifier onlyOwner() {
-        require(owner() == _msgSender(), "Ownable: caller is not the owner");
-        _;
-    }
-
-    /**
-     * @dev Leaves the contract without owner. It will not be possible to call
-     * `onlyOwner` functions anymore. Can only be called by the current owner.
-     *
-     * NOTE: Renouncing ownership will leave the contract without an owner,
-     * thereby removing any functionality that is only available to the owner.
-     */
-    function renounceOwnership() public virtual onlyOwner {
-        emit OwnershipTransferred(_owner, address(0));
-        _owner = address(0);
-    }
-
-    /**
-     * @dev Transfers ownership of the contract to a new account (`newOwner`).
-     * Can only be called by the current owner.
-     */
-    function transferOwnership(address newOwner) public virtual onlyOwner {
-        require(newOwner != address(0), "Ownable: new owner is the zero address");
-        emit OwnershipTransferred(_owner, newOwner);
-        _owner = newOwner;
-    }
-}
-
 /**
  * @dev Contract module which allows children to implement an emergency stop
  * mechanism that can be triggered by an authorized account.
@@ -772,153 +736,260 @@ abstract contract Pausable is Context {
     }
 }
 
-interface IPangolinRouter {
-    function addLiquidity(address tokenA, address tokenB, uint amountADesired, uint amountBDesired, uint amountAMin, uint amountBMin, address to, uint deadline) external returns (uint amountA, uint amountB, uint liquidity);
-    function addLiquidityAVAX(address token, uint amountTokenDesired, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline) external payable returns (uint amountToken, uint amountAVAX, uint liquidity);
-    function removeLiquidity(address tokenA, address tokenB, uint liquidity, uint amountAMin, uint amountBMin, address to, uint deadline) external returns (uint amountA, uint amountB);
-    function removeLiquidityAVAX(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline) external returns (uint amountToken, uint amountAVAX);
-    function removeLiquidityWithPermit(address tokenA, address tokenB, uint liquidity, uint amountAMin, uint amountBMin, address to, uint deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) external returns (uint amountA, uint amountB);
-    function removeLiquidityAVAXWithPermit(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) external returns (uint amountToken, uint amountAVAX);
-    function removeLiquidityAVAXSupportingFeeOnTransferTokens(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline) external returns (uint amountAVAX);
-    function removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens(address token, uint liquidity, uint amountTokenMin, uint amountAVAXMin, address to, uint deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) external returns (uint amountAVAX);
-    function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapTokensForExactTokens(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapExactAVAXForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts);
-    function swapTokensForExactAVAX(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapExactTokensForAVAX(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
-    function swapAVAXForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts);
-    function swapExactTokensForTokensSupportingFeeOnTransferTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline ) external;
-    function swapExactAVAXForTokensSupportingFeeOnTransferTokens( uint amountOutMin, address[] calldata path, address to, uint deadline) external payable;
-    function swapExactTokensForAVAXSupportingFeeOnTransferTokens( uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external;
-    function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);
-    function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);
-    function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);
-    function getAmountsOut(uint amountIn, address[] memory path) external view returns (uint[] memory amounts);
-    function getAmountsIn(uint amountOut, address[] memory path) external view returns (uint[] memory amounts);
-}
+/**
+ * @dev Contract module which provides a basic access control mechanism, where
+ * there is an account (an owner) that can be granted exclusive access to
+ * specific functions.
+ *
+ * By default, the owner account will be the one that deploys the contract. This
+ * can later be changed with {transferOwnership}.
+ *
+ * This module is used through inheritance. It will make available the modifier
+ * `onlyOwner`, which can be applied to your functions to restrict their use to
+ * the owner.
+ */
+abstract contract Ownable is Context {
+    address private _owner;
 
-interface ICycle {
-    function cycle(uint256 amountIn) external;
-    function authorize(uint256 amount) external;
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    /**
+     * @dev Initializes the contract setting the deployer as the initial owner.
+     */
+    constructor () internal {
+        address msgSender = _msgSender();
+        _owner = msgSender;
+        emit OwnershipTransferred(address(0), msgSender);
+    }
+
+    /**
+     * @dev Returns the address of the current owner.
+     */
+    function owner() public view virtual returns (address) {
+        return _owner;
+    }
+
+    /**
+     * @dev Throws if called by any account other than the owner.
+     */
+    modifier onlyOwner() {
+        require(owner() == _msgSender(), "Ownable: caller is not the owner");
+        _;
+    }
+
+    /**
+     * @dev Leaves the contract without owner. It will not be possible to call
+     * `onlyOwner` functions anymore. Can only be called by the current owner.
+     *
+     * NOTE: Renouncing ownership will leave the contract without an owner,
+     * thereby removing any functionality that is only available to the owner.
+     */
+    function renounceOwnership() public virtual onlyOwner {
+        emit OwnershipTransferred(_owner, address(0));
+        _owner = address(0);
+    }
+
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     * Can only be called by the current owner.
+     */
+    function transferOwnership(address newOwner) public virtual onlyOwner {
+        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        emit OwnershipTransferred(_owner, newOwner);
+        _owner = newOwner;
+    }
 }
 
 interface IWAVAX {
-    function approve(address spender, uint amount) external returns (bool);
-    function balanceOf(address) external view returns (uint256);
-    function transferFrom(address src, address dst, uint wad) external returns (bool);
-    function deposit() external payable;
     function withdraw(uint wad) external;
 }
 
+interface IProtocolAddresses {
+    function HarvestProcessor() external view returns (address);
+}
+
 /**
- * @title Processor V3
- * @dev Time release of preloaded tokens 
- * @dev Fee kickback to caller of process function
+ * @title Cycle AVAX Rewards
+ * @dev Adapted from Synthetix StakingRewards.sol
+ * https://github.com/Synthetixio/synthetix/blob/master/contracts/StakingRewards.sol
+ *
+ * Notes about permissions:
+ * - The Processor will load rewards and notify
+ * - Participants can deposit, withdraw and claim their rewards
+ * - The owner has access to permissioned operations
  */
-contract ProcessorV3 is ReentrancyGuard, Ownable, Pausable {
-    using SafeERC20 for IERC20;
+contract AVAXRewards is ReentrancyGuard, Pausable, Ownable {
     using SafeMath for uint256;
+    using SafeERC20 for IERC20;
 
-    address public constant CYCLE = address(0x81440C939f2C1E34fc7048E518a637205A632a74);
-    address public constant WAVAX = address(0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7);
-    address public constant Router = address(0xE54Ca86531e17Ef3616d22Ca28b0D458b6C89106);
+    /* ========== STATE VARIABLES ========== */
 
-    address[] public swapPath = [WAVAX, CYCLE];
+    address public constant WAVAX = address(0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7); // reward token
+    
+    IERC20 public stakingToken;
+    uint256 public periodFinish = 0;
+    uint256 public rewardRate = 0;
+    uint256 public rewardsDuration = 1 days;
+    uint256 public lastUpdateTime;
+    uint256 public rewardPerTokenStored;
 
-    uint256 public dailyEmission = 20e18;
-    uint256 public lastProcessingTime;
-    uint256 public processCost;
-    uint256 public minCallMultiple;
+    mapping(address => uint256) public userRewardPerTokenPaid;
+    mapping(address => uint256) public rewards;
 
-    event HarvestProcessed(uint256 amountWAVAX, uint256 amountCYCLE, address indexed caller);
-    event DailyEmissionUpdated(uint256 newEmission);
-    event ProcessCostUpdated(uint256 processCost);
-    event MinCallMultipleUpdated(uint256 minCallMultiple);
+    uint256 private _totalSupply;
+    mapping(address => uint256) private _balances;
 
-    constructor(uint256 _processCost, uint256 _minCallMultiple) public {
-        lastProcessingTime = block.timestamp;
-        processCost = _processCost;
-        minCallMultiple = _minCallMultiple;
-        emit ProcessCostUpdated(processCost);
-        emit MinCallMultipleUpdated(minCallMultiple);
+    address public ProtocolAddresses;
+
+    /* ========== CONSTRUCTOR ========== */
+
+    constructor(
+        address _stakingToken
+    ) public {
+        stakingToken = IERC20(_stakingToken);
     }
 
     receive() external payable {}
 
-    function togglePause() external onlyOwner {
+    /* ========== VIEWS ========== */
+
+    function totalSupply() external view returns (uint256) {
+        return _totalSupply;
+    }
+
+    function balanceOf(address account) external view returns (uint256) {
+        return _balances[account];
+    }
+
+    function lastTimeRewardApplicable() public view returns (uint256) {
+        return Math.min(block.timestamp, periodFinish);
+    }
+
+    function rewardPerToken() public view returns (uint256) {
+        if (_totalSupply == 0) {
+            return rewardPerTokenStored;
+        }
+        return
+            rewardPerTokenStored.add(
+                lastTimeRewardApplicable().sub(lastUpdateTime).mul(rewardRate).mul(1e18).div(_totalSupply)
+            );
+    }
+
+    function earned(address account) public view returns (uint256) {
+        return _balances[account].mul(rewardPerToken().sub(userRewardPerTokenPaid[account])).div(1e18).add(rewards[account]);
+    }
+
+    function getRewardForDuration() external view returns (uint256) {
+        return rewardRate.mul(rewardsDuration);
+    }
+
+    /* ========== MUTATIVE FUNCTIONS ========== */
+
+    function stake(uint256 amount) external nonReentrant whenNotPaused updateReward(msg.sender) {
+        require(amount > 0, "Cannot stake 0");
+        _totalSupply = _totalSupply.add(amount);
+        _balances[msg.sender] = _balances[msg.sender].add(amount);
+        stakingToken.safeTransferFrom(msg.sender, address(this), amount);
+        emit Staked(msg.sender, amount);
+    }
+
+    function withdraw(uint256 amount) public nonReentrant updateReward(msg.sender) {
+        require(amount > 0, "Cannot withdraw 0");
+        _totalSupply = _totalSupply.sub(amount);
+        _balances[msg.sender] = _balances[msg.sender].sub(amount);
+        stakingToken.safeTransfer(msg.sender, amount);
+        emit Withdrawn(msg.sender, amount);
+    }
+
+    function getReward() public nonReentrant updateReward(msg.sender) {
+        uint256 reward = rewards[msg.sender];
+        if (reward > 0) {
+            rewards[msg.sender] = 0;
+            IWAVAX(WAVAX).withdraw(reward);
+            (bool success, ) = msg.sender.call{value: reward}("");
+            require(success, "AVAXRewards: Unable to transfer AVAX");
+            emit RewardPaid(msg.sender, reward);
+        }
+    }
+
+    /* ========== RESTRICTED FUNCTIONS ========== */
+
+    function notifyRewardAmount(uint256 reward) external onlyProcessor updateReward(address(0)) {
+        if (block.timestamp >= periodFinish) {
+            rewardRate = reward.div(rewardsDuration);
+        } else {
+            uint256 remaining = periodFinish.sub(block.timestamp);
+            uint256 leftover = remaining.mul(rewardRate);
+            rewardRate = reward.add(leftover).div(rewardsDuration);
+        }
+
+        // Ensure the provided reward amount is not more than the balance in the contract.
+        // This keeps the reward rate in the right range, preventing overflows due to
+        // very high values of rewardRate in the earned and rewardsPerToken functions;
+        // Reward + leftover must be less than 2^256 / 10^18 to avoid overflow.
+        uint balance = IERC20(WAVAX).balanceOf(address(this));
+        require(rewardRate <= balance.div(rewardsDuration), "Provided reward too high");
+
+        lastUpdateTime = block.timestamp;
+        periodFinish = block.timestamp.add(rewardsDuration);
+        emit RewardAdded(reward);
+    }
+
+    // End rewards emission earlier
+    function updatePeriodFinish(uint timestamp) external onlyOwner updateReward(address(0)) {
+        periodFinish = timestamp;
+    }
+
+    // Added to support recovering LP Rewards from other systems such as BAL to be distributed to holders
+    function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyOwner {
+        require(tokenAddress != address(stakingToken), "Cannot withdraw the staking token");
+        IERC20(tokenAddress).safeTransfer(owner(), tokenAmount);
+        emit Recovered(tokenAddress, tokenAmount);
+    }
+
+    function setRewardsDuration(uint256 _rewardsDuration) external onlyOwner {
+        require(
+            block.timestamp > periodFinish,
+            "Previous rewards period must be complete before changing the duration for the new period"
+        );
+        rewardsDuration = _rewardsDuration;
+        emit RewardsDurationUpdated(rewardsDuration);
+    }
+
+    function setProtocolAddresses(address _ProtocolAddresses) external onlyOwner {
+        ProtocolAddresses = _ProtocolAddresses;
+        emit ProtocolAddressesUpdated(ProtocolAddresses);
+    }
+
+    function togglePausedState() external onlyOwner {
         paused() ? _unpause() : _pause();
     }
 
-    function setDailyEmission(uint256 newEmission) external onlyOwner {
-        dailyEmission = newEmission;
-        emit DailyEmissionUpdated(newEmission);
-    }
+    /* ========== MODIFIERS ========== */
 
-    function setProcessCost(uint256 _processCost) external onlyOwner {
-        processCost = _processCost;
-        emit ProcessCostUpdated(processCost);
-    }
-
-    function setMinCallMulitple(uint256 _minCallMultiple) external onlyOwner {
-        minCallMultiple = _minCallMultiple;
-        emit MinCallMultipleUpdated(minCallMultiple);
-    }
-
-    // In case rewards need to be cleared for update
-    function clearRewards() external onlyOwner {
-        IERC20(CYCLE).safeTransfer(msg.sender, balanceCYCLE());
-    }
-
-    function balanceWAVAX() public view returns (uint256) {
-        return IERC20(WAVAX).balanceOf(address(this));
-    }
-
-    function balanceCYCLE() public view returns (uint256) {
-        return IERC20(CYCLE).balanceOf(address(this));
-    }
-
-    // Returns swap result and CYCLE amount after adding timed release
-    function addTimeReleaseAndSwap(uint256 amountWAVAX) internal returns (uint256 amountCYCLE) {
-        uint256 balance = balanceCYCLE();
-
-        if (balance > 0) {
-            uint256 elapsedTime = block.timestamp.sub(lastProcessingTime);
-            uint256 timeReleaseAmount = dailyEmission.mul(elapsedTime).div(1 days);
-            amountCYCLE = (timeReleaseAmount < balance) ? timeReleaseAmount : balance;
+    modifier updateReward(address account) {
+        rewardPerTokenStored = rewardPerToken();
+        lastUpdateTime = lastTimeRewardApplicable();
+        if (account != address(0)) {
+            rewards[account] = earned(account);
+            userRewardPerTokenPaid[account] = rewardPerTokenStored;
         }
-
-        IERC20(WAVAX).safeIncreaseAllowance(Router, amountWAVAX);
-        uint256[] memory amounts = IPangolinRouter(Router).swapExactTokensForTokens(amountWAVAX, 0, swapPath, address(this), block.timestamp.add(120));
-
-        lastProcessingTime = block.timestamp;
-        
-        amountCYCLE = amountCYCLE.add(amounts[1]); 
+        _;
     }
 
-    /**
-     * @dev Allow pausing processing when upgrading Cycle variables or Distributor
-     */
-    function process() external nonReentrant whenNotPaused {
-        require(!Address.isContract(msg.sender), "ProcessV3: Caller is not an EOA");
-
-        uint256 balanceAVAX = address(this).balance;
-        if (balanceAVAX > 0) {
-            IWAVAX(WAVAX).deposit{value: balanceAVAX}();
-        }
-
-        uint256 amountWAVAX = balanceWAVAX();
-        require(amountWAVAX > processCost.mul(minCallMultiple), "ProcessV3: Minimum WAVAX amount not met");
-
-        IWAVAX(WAVAX).withdraw(processCost);
-        (bool success, ) = msg.sender.call{value: processCost}("");
-        require(success, "ProcessV3: Unable to transfer AVAX");
-
-        amountWAVAX = balanceWAVAX();
-
-        uint256 amountCYCLE = addTimeReleaseAndSwap(amountWAVAX);
-        ICycle(CYCLE).authorize(amountCYCLE);
-        ICycle(CYCLE).cycle(amountCYCLE);
-
-        emit HarvestProcessed(amountWAVAX, amountCYCLE, msg.sender);
+    modifier onlyProcessor() {
+        address Processor = IProtocolAddresses(ProtocolAddresses).HarvestProcessor();
+        require(msg.sender == Processor, "Caller must be the Processor");
+        _;
     }
+
+    /* ========== EVENTS ========== */
+
+    event RewardAdded(uint256 reward);
+    event Staked(address indexed user, uint256 amount);
+    event Withdrawn(address indexed user, uint256 amount);
+    event RewardPaid(address indexed user, uint256 reward);
+    event RewardsDurationUpdated(uint256 newDuration);
+    event Recovered(address token, uint256 amount);
+    event ProtocolAddressesUpdated(address ProtocolAddresses);
 }

@@ -6,15 +6,19 @@ Addresses and Explore links for all active smart contracts
 
 [Cycle Token](https://cchain.explorer.avax.network/address/0x81440C939f2C1E34fc7048E518a637205A632a74/transactions) - 0x81440C939f2C1E34fc7048E518a637205A632a74
 
-[Distributor](https://cchain.explorer.avax.network/address/0x0B6340A6DE49a6C24BD9e3a5FbF42A2E8b43805F/transactions) - 0x0B6340A6DE49a6C24BD9e3a5FbF42A2E8b43805F
+[Distributor](https://cchain.explorer.avax.network/address/0xa44953FDb2fBfCF917A8F277BeeF792Bd650B659/transactions) - 0xa44953FDb2fBfCF917A8F277BeeF792Bd650B659
 
-[Processor](https://cchain.explorer.avax.network/address/0x35951b7a18aff6454595a5Ef9cc07fC3a2Bf6f04/transactions) - 0x35951b7a18aff6454595a5Ef9cc07fC3a2Bf6f04
+[Processor](https://cchain.explorer.avax.network/address/0x5DA68E32c46c026732564C4E7689E712d6E6a57C/transactions) - 0x5DA68E32c46c026732564C4E7689E712d6E6a57C
+
+[DistributionProxy](https://cchain.explorer.avax.network/address/0x9F0631F10D607Dd80696A067dF2150da683acA81/transactions) - 0x9F0631F10D607Dd80696A067dF2150da683acA81
 
 [ProtocolAddresses](https://cchain.explorer.avax.network/address/0xe97a562F03637b067324EEf459fef982BffF28d0/transactions) - 0xe97a562F03637b067324EEf459fef982BffF28d0
 
 [StrategyVariables](https://cchain.explorer.avax.network/address/0xB18dCb184793be39550C6a055338286DE94c755D/transactions) - 0xB18dCb184793be39550C6a055338286DE94c755D
 
 [CoreRewards](https://cchain.explorer.avax.network/address/0xE006716Ae6cAA486d77084C1cca1428fb99c877B/transactions) - 0xE006716Ae6cAA486d77084C1cca1428fb99c877B
+
+[AVAXRewards](https://cchain.explorer.avax.network/address/0x6140D3ED2426cbB24f07D884106D9018d49d9101/transactions) - 0x6140D3ED2426cbB24f07D884106D9018d49d9101
 
 [TeamTimelock](https://cchain.explorer.avax.network/address/0xf32986Aeff6280eCC4E404C987987050FA57A750/transactions) - 0xf32986Aeff6280eCC4E404C987987050FA57A750
 

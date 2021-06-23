@@ -628,151 +628,6 @@ abstract contract Ownable is Context {
     }
 }
 
-/**
- * @dev Contract module which allows children to implement an emergency stop
- * mechanism that can be triggered by an authorized account.
- *
- * This module is used through inheritance. It will make available the
- * modifiers `whenNotPaused` and `whenPaused`, which can be applied to
- * the functions of your contract. Note that they will not be pausable by
- * simply including this module, only once the modifiers are put in place.
- */
-abstract contract Pausable is Context {
-    /**
-     * @dev Emitted when the pause is triggered by `account`.
-     */
-    event Paused(address account);
-
-    /**
-     * @dev Emitted when the pause is lifted by `account`.
-     */
-    event Unpaused(address account);
-
-    bool private _paused;
-
-    /**
-     * @dev Initializes the contract in unpaused state.
-     */
-    constructor () internal {
-        _paused = false;
-    }
-
-    /**
-     * @dev Returns true if the contract is paused, and false otherwise.
-     */
-    function paused() public view virtual returns (bool) {
-        return _paused;
-    }
-
-    /**
-     * @dev Modifier to make a function callable only when the contract is not paused.
-     *
-     * Requirements:
-     *
-     * - The contract must not be paused.
-     */
-    modifier whenNotPaused() {
-        require(!paused(), "Pausable: paused");
-        _;
-    }
-
-    /**
-     * @dev Modifier to make a function callable only when the contract is paused.
-     *
-     * Requirements:
-     *
-     * - The contract must be paused.
-     */
-    modifier whenPaused() {
-        require(paused(), "Pausable: not paused");
-        _;
-    }
-
-    /**
-     * @dev Triggers stopped state.
-     *
-     * Requirements:
-     *
-     * - The contract must not be paused.
-     */
-    function _pause() internal virtual whenNotPaused {
-        _paused = true;
-        emit Paused(_msgSender());
-    }
-
-    /**
-     * @dev Returns to normal state.
-     *
-     * Requirements:
-     *
-     * - The contract must be paused.
-     */
-    function _unpause() internal virtual whenPaused {
-        _paused = false;
-        emit Unpaused(_msgSender());
-    }
-}
-
-/**
- * @dev Contract module that helps prevent reentrant calls to a function.
- *
- * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier
- * available, which can be applied to functions to make sure there are no nested
- * (reentrant) calls to them.
- *
- * Note that because there is a single `nonReentrant` guard, functions marked as
- * `nonReentrant` may not call one another. This can be worked around by making
- * those functions `private`, and then adding `external` `nonReentrant` entry
- * points to them.
- *
- * TIP: If you would like to learn more about reentrancy and alternative ways
- * to protect against it, check out our blog post
- * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].
- */
-abstract contract ReentrancyGuard {
-    // Booleans are more expensive than uint256 or any type that takes up a full
-    // word because each write operation emits an extra SLOAD to first read the
-    // slot's contents, replace the bits taken up by the boolean, and then write
-    // back. This is the compiler's defense against contract upgrades and
-    // pointer aliasing, and it cannot be disabled.
-
-    // The values being non-zero value makes deployment a bit more expensive,
-    // but in exchange the refund on every call to nonReentrant will be lower in
-    // amount. Since refunds are capped to a percentage of the total
-    // transaction's gas, it is best to keep them low in cases like this one, to
-    // increase the likelihood of the full refund coming into effect.
-    uint256 private constant _NOT_ENTERED = 1;
-    uint256 private constant _ENTERED = 2;
-
-    uint256 private _status;
-
-    constructor () internal {
-        _status = _NOT_ENTERED;
-    }
-
-    /**
-     * @dev Prevents a contract from calling itself, directly or indirectly.
-     * Calling a `nonReentrant` function from another `nonReentrant`
-     * function is not supported. It is possible to prevent this from happening
-     * by making the `nonReentrant` function external, and make it call a
-     * `private` function that does the actual work.
-     */
-    modifier nonReentrant() {
-        // On the first call to nonReentrant, _notEntered will be true
-        require(_status != _ENTERED, "ReentrancyGuard: reentrant call");
-
-        // Any calls to nonReentrant after this point will fail
-        _status = _ENTERED;
-
-        _;
-
-        // By storing the original value once again, a refund is triggered (see
-        // https://eips.ethereum.org/EIPS/eip-2200)
-        _status = _NOT_ENTERED;
-    }
-}
-
-pragma solidity >=0.5.0;
 interface IPangolinPair {
     event Approval(address indexed owner, address indexed spender, uint value);
     event Transfer(address indexed from, address indexed to, uint value);
@@ -901,6 +756,18 @@ library PangolinLibrary {
     }
 }
 
+interface IRouter {
+    function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
+}
+
+interface IWAVAX {
+    function approve(address spender, uint amount) external returns (bool);
+    function balanceOf(address) external view returns (uint256);
+    function transferFrom(address src, address dst, uint wad) external returns (bool);
+    function deposit() external payable;
+    function withdraw(uint wad) external;
+}
+
 interface IStakingRewards {
     function stakingToken() external view returns (address);
     function totalSupply() external view returns (uint256);
@@ -912,13 +779,33 @@ interface ICycleVault {
     function getAVAXquoteForLPamount(uint256 amountLP) external view returns (uint256);
 }
 
-contract DistributorV2 is Ownable, Pausable, ReentrancyGuard {
+interface IProcessor {
+    function emission() external view returns (uint256);
+}
+
+interface IProtocolAddresses {
+    function HarvestProcessor() external view returns (address);
+}
+
+/**
+ * @title Distributor V4
+ * @dev Cycle vault reward distribution logic
+ */
+contract DistributorV4 is Ownable {
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
 
     address public constant CYCLE = address(0x81440C939f2C1E34fc7048E518a637205A632a74);
     address public constant WAVAX = address(0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7);
     address public constant Factory = address(0xefa94DE7a4656D787667C749f7E1223D71E9FD88);
+    address public constant Router = address(0xE54Ca86531e17Ef3616d22Ca28b0D458b6C89106);
+
+    address public ProtocolAddresses;
+    address public Proxy;
+
+    address[] public swapPath = [CYCLE, WAVAX];
+
+    uint256 public distributionCost;
 
     struct RewardData {
         address StakingRewards;
@@ -940,9 +827,30 @@ contract DistributorV2 is Ownable, Pausable, ReentrancyGuard {
     event CoreRewardsWeightUpdated(uint256 weight);
     event CycleDistributedTotal(uint256 amount);
     event CycleDistributed(address StakingRewards, uint256 amount);
+    event DistributionCostUpdated(uint256 distributionCost);
+    event ProtocolAddressesUpdated(address ProtocolAddresses);
+    event ProxyUpdated(address Proxy);
 
-    function togglePause() external onlyOwner {
-        paused() ? _unpause() : _pause();
+    constructor(uint256 _distributionCost) public {
+        distributionCost = _distributionCost;
+        emit DistributionCostUpdated(distributionCost);
+    }
+
+    receive() external payable {}
+
+    modifier onlyProxy() {
+        require(msg.sender == Proxy, "DistributorV4: Caller must be the Proxy");
+        _;
+    }
+
+    function setProtocolAddresses(address _ProtocolAddresses) external onlyOwner {
+        ProtocolAddresses = _ProtocolAddresses;
+        emit ProtocolAddressesUpdated(ProtocolAddresses);
+    }
+
+    function setProxy(address _Proxy) external onlyOwner {
+        Proxy = _Proxy;
+        emit ProxyUpdated(Proxy);
     }
 
     /**
@@ -990,6 +898,15 @@ contract DistributorV2 is Ownable, Pausable, ReentrancyGuard {
     function setCoreRewardsWeight(uint256 coreRewardWeight) external onlyOwner {
         coreRewards.weight = coreRewardWeight;
         emit CoreRewardsWeightUpdated(coreRewardWeight);
+    }
+
+    /**
+     * @dev Set the approximate current cost of the distribute function in wei
+     * @dev Will need to be updated whenever reward array is updated
+     */
+    function setDistributionCost(uint256 _distributionCost) external onlyOwner {
+        distributionCost = _distributionCost;
+        emit DistributionCostUpdated(distributionCost);
     }
 
     /**
@@ -1048,18 +965,44 @@ contract DistributorV2 is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
+     * @dev Call fee kickback logic, sending {distributionCost} in AVAX to caller
+     */
+    function _processKickback(address caller) internal {
+        (uint256 reservesWAVAX, uint256 reservesCYCLE) = PangolinLibrary.getReserves(Factory, WAVAX, CYCLE);
+        uint256 amountCYCLEtoSwap = PangolinLibrary.getAmountIn(distributionCost, reservesCYCLE, reservesWAVAX);
+
+        IERC20(CYCLE).safeIncreaseAllowance(Router, amountCYCLEtoSwap);
+        IRouter(Router).swapExactTokensForTokens(amountCYCLEtoSwap, 0, swapPath, address(this), block.timestamp.add(120));
+
+        uint256 balanceWAVAX = IERC20(WAVAX).balanceOf(address(this));
+        IWAVAX(WAVAX).withdraw(balanceWAVAX);
+
+        (bool success, ) = caller.call{value: balanceWAVAX}("");
+        require(success, "DistributorV4: Unable to transfer AVAX");
+    }
+
+    /**
      * @dev Distribution function
      *
      * Normalizes output based on correlated AVAX TVL of Vault or CoreRewards
      * Also applies custom weighting
      *
      */
-    function distribute() external whenNotPaused nonReentrant {
-        require(!Address.isContract(msg.sender), "DistributorV2: Caller is not an EOA");
-
+    function distribute(address caller) external onlyProxy {
         uint256 amountToDistribute = cycleBalance();
-        require(amountToDistribute > 0, "DistributorV2: No CYCLE to distribute");
+        require(amountToDistribute > 0, "DistributorV4: No CYCLE to distribute");
 
+        // Send emission amount back to processor
+        address Processor = IProtocolAddresses(ProtocolAddresses).HarvestProcessor();
+        uint256 emissionAmount = IProcessor(Processor).emission();
+        uint256 processorBalance = IERC20(CYCLE).balanceOf(Processor);
+        if (processorBalance < emissionAmount) {
+            IERC20(CYCLE).safeTransfer(Processor, emissionAmount.sub(processorBalance));
+        }
+
+        _processKickback(caller);
+
+        amountToDistribute = cycleBalance();
         emit CycleDistributedTotal(amountToDistribute);
 
         uint256 totalNormalizedTVL;
