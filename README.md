@@ -111,3 +111,12 @@ Addresses and Explore links for all active smart contracts
 [Strategy](https://cchain.explorer.avax.network/address/0x439841369Eb83669e0889908d21e473ca65E3885/transactions) - 0x439841369Eb83669e0889908d21e473ca65E3885
 
 [Rewards](https://cchain.explorer.avax.network/address/0x0ff2b0F0b42B4BB7d318cfCbC614653719966eaF/transactions) - 0x0ff2b0F0b42B4BB7d318cfCbC614653719966eaF
+
+---
+
+### Olive Rewards AVAX/HUSKY
+[Vault](https://cchain.explorer.avax.network/address/0x661FD8d23433E38f009FBc1e79910Fc0cAb2bC6D/transactions) - 0x661FD8d23433E38f009FBc1e79910Fc0cAb2bC6D
+
+[Strategy](https://cchain.explorer.avax.network/address/0xc3A9f3245A6254819497F69E9a9c623f074c7902/transactions) - 0xc3A9f3245A6254819497F69E9a9c623f074c7902
+
+[Rewards](https://cchain.explorer.avax.network/address/0xD474F7586FF066619d1b7Aa44c2bb9A81da5Ee25/transactions) - 0xD474F7586FF066619d1b7Aa44c2bb9A81da5Ee25
