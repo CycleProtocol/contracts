@@ -788,24 +788,28 @@ interface IProtocolAddresses {
 }
 
 /**
- * @title Distributor V4
+ * @title Distributor V5
  * @dev Cycle vault reward distribution logic
  */
-contract DistributorV4 is Ownable {
+contract DistributorV5 is Ownable {
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
+
+    address public ProtocolAddresses;
+    address public Proxy;
+    address public CoreRewards;
+
+    uint256 public distributionCost;
+    uint256 public coreRewardsBasisPoints;
 
     address public constant CYCLE = address(0x81440C939f2C1E34fc7048E518a637205A632a74);
     address public constant WAVAX = address(0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7);
     address public constant Factory = address(0xefa94DE7a4656D787667C749f7E1223D71E9FD88);
     address public constant Router = address(0xE54Ca86531e17Ef3616d22Ca28b0D458b6C89106);
 
-    address public ProtocolAddresses;
-    address public Proxy;
-
     address[] public swapPath = [CYCLE, WAVAX];
 
-    uint256 public distributionCost;
+    uint256 public constant BP_DIVISOR = 10000;
 
     struct RewardData {
         address StakingRewards;
@@ -817,32 +821,36 @@ contract DistributorV4 is Ownable {
         uint256 normalizedTVL;
     }
 
-    RewardData public coreRewards;
     RewardData[] public rewards;
 
     event RewardContractAdded(address StakingRewards);
     event RewardContractDeleted(address StakingRewards);
     event RewardWeightUpdated(address StakingRewards, uint256 weight);
-    event CoreRewardsAddressUpdated(address StakingRewards);
-    event CoreRewardsWeightUpdated(uint256 weight);
     event CycleDistributedTotal(uint256 amount);
     event CycleDistributed(address StakingRewards, uint256 amount);
     event DistributionCostUpdated(uint256 distributionCost);
     event ProtocolAddressesUpdated(address ProtocolAddresses);
     event ProxyUpdated(address Proxy);
+    event CoreRewardsUpdated(address CoreRewards);
+    event CoreRewardsBasisPointsUpdated(uint256 coreRewardsBasisPoints);
 
-    constructor(uint256 _distributionCost) public {
+    constructor(uint256 _distributionCost, uint256 _coreRewardsBasisPoints) public {
         distributionCost = _distributionCost;
+        coreRewardsBasisPoints = _coreRewardsBasisPoints;
         emit DistributionCostUpdated(distributionCost);
+        emit CoreRewardsBasisPointsUpdated(coreRewardsBasisPoints);
     }
 
     receive() external payable {}
 
     modifier onlyProxy() {
-        require(msg.sender == Proxy, "DistributorV4: Caller must be the Proxy");
+        require(msg.sender == Proxy, "DistributorV5: Caller must be the Proxy");
         _;
     }
 
+    /**
+     * @dev External address management
+     */
     function setProtocolAddresses(address _ProtocolAddresses) external onlyOwner {
         ProtocolAddresses = _ProtocolAddresses;
         emit ProtocolAddressesUpdated(ProtocolAddresses);
@@ -851,6 +859,11 @@ contract DistributorV4 is Ownable {
     function setProxy(address _Proxy) external onlyOwner {
         Proxy = _Proxy;
         emit ProxyUpdated(Proxy);
+    }
+
+    function setCoreRewards(address _CoreRewards) external onlyOwner {
+        CoreRewards = _CoreRewards;
+        emit CoreRewardsUpdated(CoreRewards);
     }
 
     /**
@@ -890,14 +903,10 @@ contract DistributorV4 is Ownable {
     /**
      * @dev Core reward data management
      */
-    function setCoreRewardsAddress(address coreRewardAddress) external onlyOwner {
-        coreRewards.StakingRewards = coreRewardAddress;
-        emit CoreRewardsAddressUpdated(coreRewardAddress);
-    }
-
-    function setCoreRewardsWeight(uint256 coreRewardWeight) external onlyOwner {
-        coreRewards.weight = coreRewardWeight;
-        emit CoreRewardsWeightUpdated(coreRewardWeight);
+    function setCoreRewardsBasisPoints(uint256 _coreRewardsBasisPoints) external onlyOwner {
+        require(_coreRewardsBasisPoints < BP_DIVISOR, "DistributorV5: Basis Points out of bounds");
+        coreRewardsBasisPoints = _coreRewardsBasisPoints;
+        emit CoreRewardsBasisPointsUpdated(coreRewardsBasisPoints);
     }
 
     /**
@@ -931,7 +940,6 @@ contract DistributorV4 is Ownable {
     }
 
     function getTotalWeight() public view returns (uint256 totalWeight) {
-        totalWeight = coreRewards.weight;
         for (uint i; i < rewards.length; i++) {
             totalWeight = totalWeight.add(rewards[i].weight);
         }
@@ -949,9 +957,9 @@ contract DistributorV4 is Ownable {
      * @dev TVL helpers
      */
     function getCoreRewardsTVL() public view returns (uint256) {
-        address coreLP = IStakingRewards(coreRewards.StakingRewards).stakingToken();
+        address coreLP = IStakingRewards(CoreRewards).stakingToken();
         uint256 totalSupplyCoreLP = IERC20(coreLP).totalSupply();
-        uint256 amountCoreLPstaked = IStakingRewards(coreRewards.StakingRewards).totalSupply();
+        uint256 amountCoreLPstaked = IStakingRewards(CoreRewards).totalSupply();
         (uint256 reservesWAVAX,) = PangolinLibrary.getReserves(Factory, WAVAX, CYCLE);
         uint256 amountAVAX = reservesWAVAX.mul(amountCoreLPstaked).div(totalSupplyCoreLP);
         // AVAX + CYCLE 
@@ -978,19 +986,19 @@ contract DistributorV4 is Ownable {
         IWAVAX(WAVAX).withdraw(balanceWAVAX);
 
         (bool success, ) = caller.call{value: balanceWAVAX}("");
-        require(success, "DistributorV4: Unable to transfer AVAX");
+        require(success, "DistributorV5: Unable to transfer AVAX");
     }
 
     /**
      * @dev Distribution function
      *
-     * Normalizes output based on correlated AVAX TVL of Vault or CoreRewards
-     * Also applies custom weighting
+     * Normalizes output based on correlated AVAX TVL of Vaults, applying custom weighting
+     * Core Rewards takes a fixed percent of the distribution
      *
      */
     function distribute(address caller) external onlyProxy {
         uint256 amountToDistribute = cycleBalance();
-        require(amountToDistribute > 0, "DistributorV4: No CYCLE to distribute");
+        require(amountToDistribute > 0, "DistributorV5: No CYCLE to distribute");
 
         // Send emission amount back to processor
         address Processor = IProtocolAddresses(ProtocolAddresses).HarvestProcessor();
@@ -1002,12 +1010,22 @@ contract DistributorV4 is Ownable {
 
         _processKickback(caller);
 
+        // CYCLE is used for the caller kickback, read balance again
         amountToDistribute = cycleBalance();
         emit CycleDistributedTotal(amountToDistribute);
+
+        // Core Rewards distribution
+        uint256 amountForCoreRewards = amountToDistribute.mul(coreRewardsBasisPoints).div(BP_DIVISOR);
+        IERC20(CYCLE).safeTransfer(CoreRewards, amountForCoreRewards);
+        IStakingRewards(CoreRewards).notifyRewardAmount(amountForCoreRewards);
+        emit CycleDistributed(CoreRewards, amountForCoreRewards);
+
+        amountToDistribute = cycleBalance();
 
         uint256 totalNormalizedTVL;
         NormalizedRewardData[] memory normalizedRewards = new NormalizedRewardData[](rewards.length);
 
+        // Loop through the vaults, storing the weight normalized TVL
         for (uint i; i < rewards.length; i++) {
             uint256 vaultTVL = getVaultTVL(rewards[i].StakingRewards);
             uint256 vaultTVLnormalized = vaultTVL.mul(rewards[i].weight);
@@ -1016,22 +1034,19 @@ contract DistributorV4 is Ownable {
             normalizedRewards[i].StakingRewards = rewards[i].StakingRewards;
         }
 
-        uint256 coreRewardsTVL = getCoreRewardsTVL();
-        uint256 coreRewardsTVLnormalized = coreRewardsTVL.mul(coreRewards.weight);
-        totalNormalizedTVL = totalNormalizedTVL.add(coreRewardsTVLnormalized);
-
         for (uint i; i < normalizedRewards.length; i++) {
             address destination = normalizedRewards[i].StakingRewards;
-            uint256 amountToSend = amountToDistribute.mul(normalizedRewards[i].normalizedTVL).div(totalNormalizedTVL);
+            uint256 amountToSend;
+            if (i == normalizedRewards.length - 1) {
+                amountToSend = cycleBalance(); // send remainder to last vault reward contract
+            } else {
+                amountToSend = amountToDistribute.mul(normalizedRewards[i].normalizedTVL).div(totalNormalizedTVL);
+            }
             IERC20(CYCLE).safeTransfer(destination, amountToSend);
             IStakingRewards(destination).notifyRewardAmount(amountToSend);
             emit CycleDistributed(destination, amountToSend);
         }
-
-        uint256 remainingRewards = cycleBalance();
-        IERC20(CYCLE).safeTransfer(coreRewards.StakingRewards, remainingRewards);
-        IStakingRewards(coreRewards.StakingRewards).notifyRewardAmount(remainingRewards);
-        emit CycleDistributed(coreRewards.StakingRewards, remainingRewards);
+        
     }
 
 }
