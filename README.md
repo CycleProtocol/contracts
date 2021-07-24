@@ -8,7 +8,7 @@ Addresses and Explore links for all active smart contracts
 
 [Distributor](https://cchain.explorer.avax.network/address/0x96e9778511cC9F8E5d35652497248131D235005A/transactions) - 0x96e9778511cC9F8E5d35652497248131D235005A
 
-[Processor](https://cchain.explorer.avax.network/address/0x5DA68E32c46c026732564C4E7689E712d6E6a57C/transactions) - 0x5DA68E32c46c026732564C4E7689E712d6E6a57C
+[Processor](https://cchain.explorer.avax.network/address/0x0f13cc31B08BD2cB207c331553b6c4F13f575952/transactions) - 0x0f13cc31B08BD2cB207c331553b6c4F13f575952
 
 [DistributionProxy](https://cchain.explorer.avax.network/address/0x9F0631F10D607Dd80696A067dF2150da683acA81/transactions) - 0x9F0631F10D607Dd80696A067dF2150da683acA81
 
