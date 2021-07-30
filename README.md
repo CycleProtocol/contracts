@@ -165,3 +165,12 @@ Addresses and Explore links for all active smart contracts
 [Strategy](https://cchain.explorer.avax.network/address/0x819A20A3AD065E88380Ff83233B9567a1c7dd968/transactions) - 0x819A20A3AD065E88380Ff83233B9567a1c7dd968
 
 [Rewards](https://cchain.explorer.avax.network/address/0xcD0b45f979e17ab9C3cC3865259C1C99eEAFE436/transactions) - 0xcD0b45f979e17ab9C3cC3865259C1C99eEAFE436
+
+---
+
+### Trader Joe Rewards AVAX/SHERPA
+[Vault](https://cchain.explorer.avax.network/address/0xE80504EF78403AD1753b7DE62653c09c0f9de584/transactions) - 0xE80504EF78403AD1753b7DE62653c09c0f9de584
+
+[Strategy](https://cchain.explorer.avax.network/address/0x752b294173b9f23107C12388642BE28Ee9fE11d5/transactions) - 0x752b294173b9f23107C12388642BE28Ee9fE11d5
+
+[Rewards](https://cchain.explorer.avax.network/address/0x15e81e0373145d363537e284CD47b2B249Cfdc54/transactions) - 0x15e81e0373145d363537e284CD47b2B249Cfdc54
