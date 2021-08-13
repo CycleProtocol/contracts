@@ -192,3 +192,12 @@ Addresses and Explore links for all active smart contracts
 [Strategy](https://cchain.explorer.avax.network/address/0xC95CC37320b83B4AebBE042f818bcedcfA4Bcb46/transactions) - 0xC95CC37320b83B4AebBE042f818bcedcfA4Bcb46
 
 [Rewards](https://cchain.explorer.avax.network/address/0x43615cBF829F1622A215878272046D29e6437E6c/transactions) - 0x43615cBF829F1622A215878272046D29e6437E6c
+
+---
+
+### Avaware Rewards AVE/YAK
+[Vault](https://cchain.explorer.avax.network/address/0xaA76c50B510A668F48E612f980C45DC9691b647A/transactions) - 0xaA76c50B510A668F48E612f980C45DC9691b647A
+
+[Strategy](https://cchain.explorer.avax.network/address/0x7D23CD635766ac563F50eCC59cF9621832452132/transactions) - 0x7D23CD635766ac563F50eCC59cF9621832452132
+
+[Rewards](https://cchain.explorer.avax.network/address/0x6aF724df8968C861E18Df0050090aED33Be31962/transactions) - 0x6aF724df8968C861E18Df0050090aED33Be31962
