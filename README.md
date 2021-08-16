@@ -219,3 +219,21 @@ Addresses and Explore links for all active smart contracts
 [Strategy](https://cchain.explorer.avax.network/address/0xAF12AC5b2AB034782FCF3eA83e6974577f009D47/transactions) - 0xAF12AC5b2AB034782FCF3eA83e6974577f009D47
 
 [Rewards](https://cchain.explorer.avax.network/address/0xdbA511c2dB33F6a939CE16Cf33eA6BA19efB5807/transactions) - 0xdbA511c2dB33F6a939CE16Cf33eA6BA19efB5807
+
+---
+
+### Trader Joe Rewards AVAX/WETH.e
+[Vault](https://cchain.explorer.avax.network/address/0xc2C215d9263592665993eEfc77976e70590f0DF1/transactions) - 0xc2C215d9263592665993eEfc77976e70590f0DF1
+
+[Strategy](https://cchain.explorer.avax.network/address/0x1Ff17C88909f9Ed1352A338CEd0DD4BcEeC2Ff5b/transactions) - 0x1Ff17C88909f9Ed1352A338CEd0DD4BcEeC2Ff5b
+
+[Rewards](https://cchain.explorer.avax.network/address/0x690F33c54596E48310B8e653511bacDc83DdE0cd/transactions) - 0x690F33c54596E48310B8e653511bacDc83DdE0cd
+
+---
+
+### Trader Joe Rewards DAI.e/USDT.e
+[Vault](https://cchain.explorer.avax.network/address/0x313b8d1ca1aAfae10273cdfCFA083b9a0E272d0E/transactions) - 0x313b8d1ca1aAfae10273cdfCFA083b9a0E272d0E
+
+[Strategy](https://cchain.explorer.avax.network/address/0x0d8397c998efbecBE70eC0828C874Ec14cF40B14/transactions) - 0x0d8397c998efbecBE70eC0828C874Ec14cF40B14
+
+[Rewards](https://cchain.explorer.avax.network/address/0x1ddab0cfD7C90dA1e56C1be8B293E3bf54F0820C/transactions) - 0x1ddab0cfD7C90dA1e56C1be8B293E3bf54F0820C
