@@ -37,7 +37,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards AVAX/ETH
+### Pangolin Rewards AVAX/ETH (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xfB6e16A64ccC23848eB2951B1068a27B1d06791d/transactions) - 0xfB6e16A64ccC23848eB2951B1068a27B1d06791d
 
 [Strategy](https://cchain.explorer.avax.network/address/0xB02660FE8659D11E0eF9Ceecd609c21Ec550ca9d/transactions) - 0xB02660FE8659D11E0eF9Ceecd609c21Ec550ca9d
@@ -82,7 +82,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Baguette Rewards WAVAX/BAG
+### Baguette Rewards WAVAX/BAG (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x8D6D3131B7d01F4acE7c74E7EA999d301524B9F8/transactions) - 0x8D6D3131B7d01F4acE7c74E7EA999d301524B9F8
 
 [Strategy](https://cchain.explorer.avax.network/address/0x7Eab8F916EcA5aeAfBfa365f1439F480b71BdbE8/transactions) - 0x7Eab8F916EcA5aeAfBfa365f1439F480b71BdbE8
@@ -91,7 +91,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards AVAX/VSO
+### Pangolin Rewards AVAX/VSO (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x1e8864b21C980AaB05F3566B74aB1Aa9ec7dE948/transactions) - 0x1e8864b21C980AaB05F3566B74aB1Aa9ec7dE948
 
 [Strategy](https://cchain.explorer.avax.network/address/0xF4110f61dF314e5A37b788773eb189238C25a0A4/transactions) - 0xF4110f61dF314e5A37b788773eb189238C25a0A4
@@ -100,7 +100,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards PNG/VSO
+### Pangolin Rewards PNG/VSO (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xbD87717eAAE4F13dD5b55734a46fA49C519f9404/transactions) - 0xbD87717eAAE4F13dD5b55734a46fA49C519f9404
 
 [Strategy](https://cchain.explorer.avax.network/address/0x183f7C75ACA39d1D77cD3833ccE6bD14C612C3d5/transactions) - 0x183f7C75ACA39d1D77cD3833ccE6bD14C612C3d5
@@ -118,7 +118,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Olive Rewards AVAX/HUSKY
+### Olive Rewards AVAX/HUSKY (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x661FD8d23433E38f009FBc1e79910Fc0cAb2bC6D/transactions) - 0x661FD8d23433E38f009FBc1e79910Fc0cAb2bC6D
 
 [Strategy](https://cchain.explorer.avax.network/address/0xc3A9f3245A6254819497F69E9a9c623f074c7902/transactions) - 0xc3A9f3245A6254819497F69E9a9c623f074c7902
@@ -136,7 +136,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards AVAX/ETH
+### Trader Joe Rewards AVAX/ETH (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xe10F1567f0354F3d7394CaA42B4e30d0f19AF907/transactions) - 0xe10F1567f0354F3d7394CaA42B4e30d0f19AF907
 
 [Strategy](https://cchain.explorer.avax.network/address/0x1607055deFF71b0Ad146725eAf89a7F01229F1Fb/transactions) - 0x1607055deFF71b0Ad146725eAf89a7F01229F1Fb
@@ -154,7 +154,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards DAI/USDT
+### Trader Joe Rewards DAI/USDT (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x36EBd37960F37Ffb8EDDc6165b304dbB362Cd112/transactions) - 0x36EBd37960F37Ffb8EDDc6165b304dbB362Cd112
 
 [Strategy](https://cchain.explorer.avax.network/address/0xDc3290010b2CeB5f0a804689F649d687d6aE4C0E/transactions) - 0xDc3290010b2CeB5f0a804689F649d687d6aE4C0E
@@ -172,7 +172,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards AVAX/SHERPA
+### Trader Joe Rewards AVAX/SHERPA (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xE80504EF78403AD1753b7DE62653c09c0f9de584/transactions) - 0xE80504EF78403AD1753b7DE62653c09c0f9de584
 
 [Strategy](https://cchain.explorer.avax.network/address/0x752b294173b9f23107C12388642BE28Ee9fE11d5/transactions) - 0x752b294173b9f23107C12388642BE28Ee9fE11d5
