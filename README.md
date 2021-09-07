@@ -55,7 +55,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Penguin Rewards AVAX/PEFI
+### Penguin Rewards AVAX/PEFI (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x1ee6ed952E71cd3d1D473a596a6761B1a1D704e0/transactions) - 0x1ee6ed952E71cd3d1D473a596a6761B1a1D704e0
 
 [Strategy](https://cchain.explorer.avax.network/address/0x33A9d0ED9a05aF828aE419AF3ad39a267d0c6e70/transactions) - 0x33A9d0ED9a05aF828aE419AF3ad39a267d0c6e70
@@ -64,7 +64,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Penguin Rewards PEFI/DAI
+### Penguin Rewards PEFI/DAI (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xB0B55192aA1539f06eBAC509bf714261358A997a/transactions) - 0xB0B55192aA1539f06eBAC509bf714261358A997a
 
 [Strategy](https://cchain.explorer.avax.network/address/0x0518a9248E6cf55B3a02EAd5A1903Be6B6B9C56f/transactions) - 0x0518a9248E6cf55B3a02EAd5A1903Be6B6B9C56f
