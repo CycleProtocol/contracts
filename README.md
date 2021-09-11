@@ -22,6 +22,8 @@ Addresses and Explore links for all active smart contracts
 
 [TeamTimelock](https://cchain.explorer.avax.network/address/0xf32986Aeff6280eCC4E404C987987050FA57A750/transactions) - 0xf32986Aeff6280eCC4E404C987987050FA57A750
 
+[xCycle](https://cchain.explorer.avax.network/address/0x3b2EcFD19dC9Ca35097F80fD92e812a53c180CD1/transactions) - 0x3b2EcFD19dC9Ca35097F80fD92e812a53c180CD1
+
 ## Helpers
 
 [PriceHelper](https://cchain.explorer.avax.network/address/0xc88486F7a8273e3bCB8DeEfe7B06508fFE6C0aab/contracts) - 0xc88486F7a8273e3bCB8DeEfe7B06508fFE6C0aab
