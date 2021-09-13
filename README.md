@@ -48,7 +48,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Gondola Rewards AVAX/GDL
+### Gondola Rewards AVAX/GDL (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x47de256F890d3707aad74A89C6b532eEAaAe54BA/transactions) - 0x47de256F890d3707aad74A89C6b532eEAaAe54BA
 
 [Strategy](https://cchain.explorer.avax.network/address/0x00a7750573305f62BFDb74cDF71192e28F148A4d/transactions) - 0x00a7750573305f62BFDb74cDF71192e28F148A4d
