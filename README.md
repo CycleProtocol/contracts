@@ -351,3 +351,12 @@ Addresses and Explore links for all active smart contracts
 [Strategy](https://cchain.explorer.avax.network/address/0x5f2e435279dcCf466dC4F2869a00e63e8E445507/transactions) - 0x5f2e435279dcCf466dC4F2869a00e63e8E445507
 
 [Rewards](https://cchain.explorer.avax.network/address/0xE0DF3F3841c8DAC0435c839edDDb69c2c608Ba4f/transactions) - 0xE0DF3F3841c8DAC0435c839edDDb69c2c608Ba4f
+
+---
+
+### Tip Blue Rewards AVAX/BLUE
+[Vault](https://cchain.explorer.avax.network/address/0x2067c8f6c56963d9b5070c04815f30b1187e2fAB/transactions) - 0x2067c8f6c56963d9b5070c04815f30b1187e2fAB
+
+[Strategy](https://cchain.explorer.avax.network/address/0x7A0F40C46867d55544bF4223A857735169CE1c41/transactions) - 0x7A0F40C46867d55544bF4223A857735169CE1c41
+
+[Rewards](https://cchain.explorer.avax.network/address/0x04c6EA8A165b98a948DA25B64f290dA103a3f861/transactions) - 0x04c6EA8A165b98a948DA25B64f290dA103a3f861
