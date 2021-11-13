@@ -147,7 +147,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards AVAX/SNOB
+### Trader Joe Rewards AVAX/SNOB (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x16aB820ABB64BcE04d15de945c18c0CC31822514/transactions) - 0x16aB820ABB64BcE04d15de945c18c0CC31822514
 
 [Strategy](https://cchain.explorer.avax.network/address/0x937832F65473C54E308D7f8C8dAB2B5bCDa052fD/transactions) - 0x937832F65473C54E308D7f8C8dAB2B5bCDa052fD
