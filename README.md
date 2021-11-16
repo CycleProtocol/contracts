@@ -446,3 +446,12 @@ Addresses and Explore links for all active smart contracts
 [Strategy](https://cchain.explorer.avax.network/address/0xFD52e2050DbF483789f4A174f9Ca399034Ce3c8F/transactions) - 0xFD52e2050DbF483789f4A174f9Ca399034Ce3c8F
 
 [Rewards](https://cchain.explorer.avax.network/address/0x25Ed440c4ab1aE0B8004Ae0b67Ec754318050e4C/transactions) - 0x25Ed440c4ab1aE0B8004Ae0b67Ec754318050e4C
+
+---
+
+### Lydia Rewards AVAX/CYCLE
+[Vault](https://cchain.explorer.avax.network/address/0x724ba8a684BB5004ecEAfe3969483a09cb71AeA8/transactions) - 0x724ba8a684BB5004ecEAfe3969483a09cb71AeA8
+
+[Strategy](https://cchain.explorer.avax.network/address/0x5A2f5162539BB24d1200C939645631c9cE54Aa96/transactions) - 0x5A2f5162539BB24d1200C939645631c9cE54Aa96
+
+[Rewards](https://cchain.explorer.avax.network/address/0x2B54EFfF12b27C1A4C417361E3Aa0f827BB66052/transactions) - 0x2B54EFfF12b27C1A4C417361E3Aa0f827BB66052
