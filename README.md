@@ -30,48 +30,12 @@ Addresses and Explore links for all active smart contracts
 
 ## Vaults
 
-### Pangolin Rewards AVAX/PNG
+### Pangolin Rewards AVAX/PNG (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xccB42c29285754f441Dc6A4461De011efCD09F75/transactions) - 0xccB42c29285754f441Dc6A4461De011efCD09F75
 
 [Strategy](https://cchain.explorer.avax.network/address/0xD3105702ee5635381AE91908016771d50D17C5a6/transactions) - 0xD3105702ee5635381AE91908016771d50D17C5a6
 
 [Rewards](https://cchain.explorer.avax.network/address/0x3f5aeA81406d40b173d8800876eFF9A34dAc325A/transactions) - 0x3f5aeA81406d40b173d8800876eFF9A34dAc325A
-
----
-
-### Pangolin Rewards AVAX/ETH (closed)
-[Vault](https://cchain.explorer.avax.network/address/0xfB6e16A64ccC23848eB2951B1068a27B1d06791d/transactions) - 0xfB6e16A64ccC23848eB2951B1068a27B1d06791d
-
-[Strategy](https://cchain.explorer.avax.network/address/0xB02660FE8659D11E0eF9Ceecd609c21Ec550ca9d/transactions) - 0xB02660FE8659D11E0eF9Ceecd609c21Ec550ca9d
-
-[Rewards](https://cchain.explorer.avax.network/address/0xba9e2B7c806f3DB9fAdCF723724faa373b4a60AD/transactions) - 0xba9e2B7c806f3DB9fAdCF723724faa373b4a60AD
-
----
-
-### Gondola Rewards AVAX/GDL (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x47de256F890d3707aad74A89C6b532eEAaAe54BA/transactions) - 0x47de256F890d3707aad74A89C6b532eEAaAe54BA
-
-[Strategy](https://cchain.explorer.avax.network/address/0x00a7750573305f62BFDb74cDF71192e28F148A4d/transactions) - 0x00a7750573305f62BFDb74cDF71192e28F148A4d
-
-[Rewards](https://cchain.explorer.avax.network/address/0xA14A8811831863f6997a4486ec395687b2feB8F3/transactions) - 0xA14A8811831863f6997a4486ec395687b2feB8F3
-
----
-
-### Penguin Rewards AVAX/PEFI (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x1ee6ed952E71cd3d1D473a596a6761B1a1D704e0/transactions) - 0x1ee6ed952E71cd3d1D473a596a6761B1a1D704e0
-
-[Strategy](https://cchain.explorer.avax.network/address/0x33A9d0ED9a05aF828aE419AF3ad39a267d0c6e70/transactions) - 0x33A9d0ED9a05aF828aE419AF3ad39a267d0c6e70
-
-[Rewards](https://cchain.explorer.avax.network/address/0xB92d11159728378aA7D961469d5ECC17a5e5d724/transactions) - 0xB92d11159728378aA7D961469d5ECC17a5e5d724
-
----
-
-### Penguin Rewards PEFI/DAI (closed)
-[Vault](https://cchain.explorer.avax.network/address/0xB0B55192aA1539f06eBAC509bf714261358A997a/transactions) - 0xB0B55192aA1539f06eBAC509bf714261358A997a
-
-[Strategy](https://cchain.explorer.avax.network/address/0x0518a9248E6cf55B3a02EAd5A1903Be6B6B9C56f/transactions) - 0x0518a9248E6cf55B3a02EAd5A1903Be6B6B9C56f
-
-[Rewards](https://cchain.explorer.avax.network/address/0x3dC8995411a121D0a9E29B8690DE7F4EA912d792/transactions) - 0x3dC8995411a121D0a9E29B8690DE7F4EA912d792
 
 ---
 
@@ -84,48 +48,12 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Baguette Rewards WAVAX/BAG (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x8D6D3131B7d01F4acE7c74E7EA999d301524B9F8/transactions) - 0x8D6D3131B7d01F4acE7c74E7EA999d301524B9F8
-
-[Strategy](https://cchain.explorer.avax.network/address/0x7Eab8F916EcA5aeAfBfa365f1439F480b71BdbE8/transactions) - 0x7Eab8F916EcA5aeAfBfa365f1439F480b71BdbE8
-
-[Rewards](https://cchain.explorer.avax.network/address/0xc55D71022376BdfA42337E00392625b3199830e1/transactions) - 0xc55D71022376BdfA42337E00392625b3199830e1
-
----
-
-### Pangolin Rewards AVAX/VSO (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x1e8864b21C980AaB05F3566B74aB1Aa9ec7dE948/transactions) - 0x1e8864b21C980AaB05F3566B74aB1Aa9ec7dE948
-
-[Strategy](https://cchain.explorer.avax.network/address/0xF4110f61dF314e5A37b788773eb189238C25a0A4/transactions) - 0xF4110f61dF314e5A37b788773eb189238C25a0A4
-
-[Rewards](https://cchain.explorer.avax.network/address/0xFcCa294C37F24441AdD81bfedd276C0343F0d817/transactions) - 0xFcCa294C37F24441AdD81bfedd276C0343F0d817
-
----
-
-### Pangolin Rewards PNG/VSO (closed)
-[Vault](https://cchain.explorer.avax.network/address/0xbD87717eAAE4F13dD5b55734a46fA49C519f9404/transactions) - 0xbD87717eAAE4F13dD5b55734a46fA49C519f9404
-
-[Strategy](https://cchain.explorer.avax.network/address/0x183f7C75ACA39d1D77cD3833ccE6bD14C612C3d5/transactions) - 0x183f7C75ACA39d1D77cD3833ccE6bD14C612C3d5
-
-[Rewards](https://cchain.explorer.avax.network/address/0xaA3219B25125420171aFd3267be9709214d49a28/transactions) - 0xaA3219B25125420171aFd3267be9709214d49a28
-
----
-
 ### Avaware Rewards AVAX/AVE
 [Vault](https://cchain.explorer.avax.network/address/0x950bF2fb93c4Cb8CaBc7A08eb8A70Ea3c4A2bcC2/transactions) - 0x950bF2fb93c4Cb8CaBc7A08eb8A70Ea3c4A2bcC2
 
 [Strategy](https://cchain.explorer.avax.network/address/0x439841369Eb83669e0889908d21e473ca65E3885/transactions) - 0x439841369Eb83669e0889908d21e473ca65E3885
 
 [Rewards](https://cchain.explorer.avax.network/address/0x0ff2b0F0b42B4BB7d318cfCbC614653719966eaF/transactions) - 0x0ff2b0F0b42B4BB7d318cfCbC614653719966eaF
-
----
-
-### Olive Rewards AVAX/HUSKY (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x661FD8d23433E38f009FBc1e79910Fc0cAb2bC6D/transactions) - 0x661FD8d23433E38f009FBc1e79910Fc0cAb2bC6D
-
-[Strategy](https://cchain.explorer.avax.network/address/0xc3A9f3245A6254819497F69E9a9c623f074c7902/transactions) - 0xc3A9f3245A6254819497F69E9a9c623f074c7902
-
-[Rewards](https://cchain.explorer.avax.network/address/0xD474F7586FF066619d1b7Aa44c2bb9A81da5Ee25/transactions) - 0xD474F7586FF066619d1b7Aa44c2bb9A81da5Ee25
 
 ---
 
@@ -138,39 +66,12 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards AVAX/ETH (closed)
-[Vault](https://cchain.explorer.avax.network/address/0xe10F1567f0354F3d7394CaA42B4e30d0f19AF907/transactions) - 0xe10F1567f0354F3d7394CaA42B4e30d0f19AF907
-
-[Strategy](https://cchain.explorer.avax.network/address/0x1607055deFF71b0Ad146725eAf89a7F01229F1Fb/transactions) - 0x1607055deFF71b0Ad146725eAf89a7F01229F1Fb
-
-[Rewards](https://cchain.explorer.avax.network/address/0x1B9b8678B4C109a0348821e4b68F74627EDDE9A1/transactions) - 0x1B9b8678B4C109a0348821e4b68F74627EDDE9A1
-
----
-
 ### Trader Joe Rewards AVAX/SNOB (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x16aB820ABB64BcE04d15de945c18c0CC31822514/transactions) - 0x16aB820ABB64BcE04d15de945c18c0CC31822514
 
 [Strategy](https://cchain.explorer.avax.network/address/0x937832F65473C54E308D7f8C8dAB2B5bCDa052fD/transactions) - 0x937832F65473C54E308D7f8C8dAB2B5bCDa052fD
 
 [Rewards](https://cchain.explorer.avax.network/address/0x93C707a713B4cA4d1Ec680508c0F5895e70c217A/transactions) - 0x93C707a713B4cA4d1Ec680508c0F5895e70c217A
-
----
-
-### Trader Joe Rewards DAI/USDT (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x36EBd37960F37Ffb8EDDc6165b304dbB362Cd112/transactions) - 0x36EBd37960F37Ffb8EDDc6165b304dbB362Cd112
-
-[Strategy](https://cchain.explorer.avax.network/address/0xDc3290010b2CeB5f0a804689F649d687d6aE4C0E/transactions) - 0xDc3290010b2CeB5f0a804689F649d687d6aE4C0E
-
-[Rewards](https://cchain.explorer.avax.network/address/0xd7CD729A5859D2F30f6884b9D878bA25452fD12a/transactions) - 0xd7CD729A5859D2F30f6884b9D878bA25452fD12a
-
----
-
-### Olive Rewards AVAX/CYCLE (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x01181D0E43c1A77f111C7968BE5B7e40F1D6e106/transactions) - 0x01181D0E43c1A77f111C7968BE5B7e40F1D6e106
-
-[Strategy](https://cchain.explorer.avax.network/address/0x819A20A3AD065E88380Ff83233B9567a1c7dd968/transactions) - 0x819A20A3AD065E88380Ff83233B9567a1c7dd968
-
-[Rewards](https://cchain.explorer.avax.network/address/0xcD0b45f979e17ab9C3cC3865259C1C99eEAFE436/transactions) - 0xcD0b45f979e17ab9C3cC3865259C1C99eEAFE436
 
 ---
 
@@ -210,7 +111,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards AVAX/XAVA
+### Pangolin Rewards AVAX/XAVA (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x13C9810d32bA9B7e51FeEf9aeF3b3D479efCfACC/transactions) - 0x13C9810d32bA9B7e51FeEf9aeF3b3D479efCfACC
 
 [Strategy](https://cchain.explorer.avax.network/address/0xc867bd275Db99342A11603c04Dee3cCA1D53c9b1/transactions) - 0xc867bd275Db99342A11603c04Dee3cCA1D53c9b1
@@ -219,7 +120,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards AVAX/WETH.e
+### Pangolin Rewards AVAX/WETH.e (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x056b234bE3Aaa56506d484e17721Db0098e52474/transactions) - 0x056b234bE3Aaa56506d484e17721Db0098e52474
 
 [Strategy](https://cchain.explorer.avax.network/address/0xAF12AC5b2AB034782FCF3eA83e6974577f009D47/transactions) - 0xAF12AC5b2AB034782FCF3eA83e6974577f009D47
@@ -237,34 +138,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards DAI.e/USDT.e (Closed)
-[Vault](https://cchain.explorer.avax.network/address/0x313b8d1ca1aAfae10273cdfCFA083b9a0E272d0E/transactions) - 0x313b8d1ca1aAfae10273cdfCFA083b9a0E272d0E
-
-[Strategy](https://cchain.explorer.avax.network/address/0x0d8397c998efbecBE70eC0828C874Ec14cF40B14/transactions) - 0x0d8397c998efbecBE70eC0828C874Ec14cF40B14
-
-[Rewards](https://cchain.explorer.avax.network/address/0x1ddab0cfD7C90dA1e56C1be8B293E3bf54F0820C/transactions) - 0x1ddab0cfD7C90dA1e56C1be8B293E3bf54F0820C
-
----
-
-### Pangolin Rewards AVAX/DAI.e
-[Vault](https://cchain.explorer.avax.network/address/0x4Fbb4C6dBD68A609780C79A18C04e5Ac52dD622C/transactions) - 0x4Fbb4C6dBD68A609780C79A18C04e5Ac52dD622C
-
-[Strategy](https://cchain.explorer.avax.network/address/0xbAe49646b7fD57a7A949090b3414a901B13412C1/transactions) - 0xbAe49646b7fD57a7A949090b3414a901B13412C1
-
-[Rewards](https://cchain.explorer.avax.network/address/0x39811e656FBb25FeFEcDcb151ba30c9EF7564942/transactions) - 0x39811e656FBb25FeFEcDcb151ba30c9EF7564942
-
----
-
-### Pangolin Rewards AVAX/USDT.e
-[Vault](https://cchain.explorer.avax.network/address/0xD65B47A5b6B6A07CFf8798AB54F136A0f05ADFF6/transactions) - 0xD65B47A5b6B6A07CFf8798AB54F136A0f05ADFF6
-
-[Strategy](https://cchain.explorer.avax.network/address/0x0a8D9002A3DE53063A32D87535698213586c826E/transactions) - 0x0a8D9002A3DE53063A32D87535698213586c826E
-
-[Rewards](https://cchain.explorer.avax.network/address/0xe53fc16d838D509e4d45EFF161dF03EAba420938/transactions) - 0xe53fc16d838D509e4d45EFF161dF03EAba420938
-
----
-
-### Pangolin Rewards AVAX/QI
+### Pangolin Rewards AVAX/QI (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x7754Be84f3305A12558e631e5df2A4DF474Cc046/transactions) - 0x7754Be84f3305A12558e631e5df2A4DF474Cc046
 
 [Strategy](https://cchain.explorer.avax.network/address/0x4243C3C305201976264ccdc238E5D83DB3866aDe/transactions) - 0x4243C3C305201976264ccdc238E5D83DB3866aDe
@@ -345,7 +219,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards AVAX/USDC.e
+### Pangolin Rewards AVAX/USDC.e (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xF3a8B41a91dee7828Af281C7716b21EE36751E9e/transactions) - 0xF3a8B41a91dee7828Af281C7716b21EE36751E9e
 
 [Strategy](https://cchain.explorer.avax.network/address/0x5f2e435279dcCf466dC4F2869a00e63e8E445507/transactions) - 0x5f2e435279dcCf466dC4F2869a00e63e8E445507
@@ -363,7 +237,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards AVAX/CYCLE
+### Pangolin Rewards AVAX/CYCLE (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xbF7C508C1C98566F8dF694630BC5E15065Cee895/transactions) - 0xbF7C508C1C98566F8dF694630BC5E15065Cee895
 
 [Strategy](https://cchain.explorer.avax.network/address/0x609eCD1B8b6b18754C600Aac78Cd6C48457E042c/transactions) - 0x609eCD1B8b6b18754C600Aac78Cd6C48457E042c
@@ -437,15 +311,6 @@ Addresses and Explore links for all active smart contracts
 [Vault/Strategy](https://cchain.explorer.avax.network/address/0x8AdEaddcB00F4ea34c7EB0B4d48Bff8de0a39244/transactions) - 0x8AdEaddcB00F4ea34c7EB0B4d48Bff8de0a39244
 
 [Rewards](https://cchain.explorer.avax.network/address/0xF6D666045832c0b9f6583386aC31b602d66d8536/transactions) - 0xF6D666045832c0b9f6583386aC31b602d66d8536
-
----
-
-### Trader Joe Rewards AVAX/SPELL (closed)
-[Vault](https://cchain.explorer.avax.network/address/0x18A3206804B5C0D3eC0B2ec06343099c169e8eE7/transactions) - 0x18A3206804B5C0D3eC0B2ec06343099c169e8eE7
-
-[Strategy](https://cchain.explorer.avax.network/address/0xFD52e2050DbF483789f4A174f9Ca399034Ce3c8F/transactions) - 0xFD52e2050DbF483789f4A174f9Ca399034Ce3c8F
-
-[Rewards](https://cchain.explorer.avax.network/address/0x25Ed440c4ab1aE0B8004Ae0b67Ec754318050e4C/transactions) - 0x25Ed440c4ab1aE0B8004Ae0b67Ec754318050e4C
 
 ---
 
