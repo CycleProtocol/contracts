@@ -298,7 +298,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards AVAX/TSD
+### Trader Joe Rewards AVAX/TSD (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xDf4c29B702BDeff2Ec5c9b0adB287ff5B3bC2af3/transactions) - 0xDf4c29B702BDeff2Ec5c9b0adB287ff5B3bC2af3
 
 [Strategy](https://cchain.explorer.avax.network/address/0x405a162fF86059E1d4c89ea474E28c47DE2267EF/transactions) - 0x405a162fF86059E1d4c89ea474E28c47DE2267EF
