@@ -307,7 +307,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Pangolin Rewards PNG
+### Pangolin Rewards PNG (closed)
 [Vault/Strategy](https://cchain.explorer.avax.network/address/0x8AdEaddcB00F4ea34c7EB0B4d48Bff8de0a39244/transactions) - 0x8AdEaddcB00F4ea34c7EB0B4d48Bff8de0a39244
 
 [Rewards](https://cchain.explorer.avax.network/address/0xF6D666045832c0b9f6583386aC31b602d66d8536/transactions) - 0xF6D666045832c0b9f6583386aC31b602d66d8536
