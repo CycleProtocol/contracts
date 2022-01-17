@@ -24,6 +24,8 @@ Addresses and Explore links for all active smart contracts
 
 [xCycle](https://cchain.explorer.avax.network/address/0x3b2EcFD19dC9Ca35097F80fD92e812a53c180CD1/transactions) - 0x3b2EcFD19dC9Ca35097F80fD92e812a53c180CD1
 
+[CycleManager](https://cchain.explorer.avax.network/address/0x78c24AB1157854355e22d1501d794AA258C606f8/transactions) - 0x78c24AB1157854355e22d1501d794AA258C606f8
+
 ## Helpers
 
 [PriceHelper](https://cchain.explorer.avax.network/address/0xc88486F7a8273e3bCB8DeEfe7B06508fFE6C0aab/contracts) - 0xc88486F7a8273e3bCB8DeEfe7B06508fFE6C0aab
