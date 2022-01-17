@@ -316,7 +316,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Lydia Rewards AVAX/CYCLE
+### Lydia Rewards AVAX/CYCLE (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x724ba8a684BB5004ecEAfe3969483a09cb71AeA8/transactions) - 0x724ba8a684BB5004ecEAfe3969483a09cb71AeA8
 
 [Strategy](https://cchain.explorer.avax.network/address/0x5A2f5162539BB24d1200C939645631c9cE54Aa96/transactions) - 0x5A2f5162539BB24d1200C939645631c9cE54Aa96
