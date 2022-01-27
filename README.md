@@ -248,7 +248,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards AVAX/MIM
+### Trader Joe Rewards AVAX/MIM (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xb1D072aD231E50851e6E9d5a04E2d61Ef995BEd1/transactions) - 0xb1D072aD231E50851e6E9d5a04E2d61Ef995BEd1
 
 [Strategy](https://cchain.explorer.avax.network/address/0xf8e744195aD211c6d86dDe2f1F5C1231fd3C0b0d/transactions) - 0xf8e744195aD211c6d86dDe2f1F5C1231fd3C0b0d
