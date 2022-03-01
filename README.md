@@ -284,7 +284,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards xJOE
+### Trader Joe Rewards xJOE (closed)
 [Vault/Strategy](https://cchain.explorer.avax.network/address/0x04E6F23217C13E1dfE54ee80fb96F7ECC90116Fe/transactions) - 0x04E6F23217C13E1dfE54ee80fb96F7ECC90116Fe
 
 [Rewards](https://cchain.explorer.avax.network/address/0x8f8159332cB9B4a19712685DdAE2eda1380D0C89/transactions) - 0x8f8159332cB9B4a19712685DdAE2eda1380D0C89
