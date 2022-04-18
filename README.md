@@ -95,7 +95,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Avaware Rewards AVE/SHERPA
+### Avaware Rewards AVE/SHERPA (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x60B9Fa802C2Bf85203b22c2aC0A68948632bf1f1/transactions) - 0x60B9Fa802C2Bf85203b22c2aC0A68948632bf1f1
 
 [Strategy](https://cchain.explorer.avax.network/address/0xC95CC37320b83B4AebBE042f818bcedcfA4Bcb46/transactions) - 0xC95CC37320b83B4AebBE042f818bcedcfA4Bcb46
