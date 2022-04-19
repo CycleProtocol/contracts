@@ -86,7 +86,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Avaware Rewards AVE/CYCLE
+### Avaware Rewards AVE/CYCLE (closed)
 [Vault](https://cchain.explorer.avax.network/address/0x4762baf391Ca1A18f71320a6A09bCD2067EA32cA/transactions) - 0x4762baf391Ca1A18f71320a6A09bCD2067EA32cA
 
 [Strategy](https://cchain.explorer.avax.network/address/0xe9c252Abb288b17ACBB5Ed03cbD843E2Fa71f704/transactions) - 0xe9c252Abb288b17ACBB5Ed03cbD843E2Fa71f704
@@ -203,7 +203,7 @@ Addresses and Explore links for all active smart contracts
 
 ---
 
-### Trader Joe Rewards AVAX/USDC.e
+### Trader Joe Rewards AVAX/USDC.e (closed)
 [Vault](https://cchain.explorer.avax.network/address/0xb5a23bdF77a8926E732ce4b1F0885e7bB3b2Dfe9/transactions) - 0xb5a23bdF77a8926E732ce4b1F0885e7bB3b2Dfe9
 
 [Strategy](https://cchain.explorer.avax.network/address/0xEbC2b6B5fD360B5D271A31B042FC6e71F34C8aBe/transactions) - 0xEbC2b6B5fD360B5D271A31B042FC6e71F34C8aBe
